@@ -7,8 +7,8 @@ Plugin to add booking widget with input date type and a fallback as Datepicker p
 </p>
 
 <p>Default values are : <br/>
-#dateSplit - '/'<br/>
-#dateFormat - 'US'
+#dateSplit - '/', available options : '/','-'<br/>
+#dateFormat - 'US', available options : 'US','UK'
 </p>
 
 <p>Example Usage :<br/>
