@@ -18,13 +18,42 @@ var options='';
   var dayNames = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
 
   var currentDay = new Date( today.getFullYear(), today.getMonth(), today.getDate() ).getDay();
-  var currentDay2 = new Date( today.getFullYear(), today.getMonth(), today.getDate()+1 ).getDay();
+  var currentDay2 = 0;
+  var date2 =0;
+  var month2=0;
 
+function validate_month(){
+  if(today.getMonth() == 0 || today.getMonth() == 2 || today.getMonth() == 4 || today.getMonth() == 6 || today.getMonth() == 7 || today.getMonth() == 9 || today.getMonth() == 11){
+    if(today.getDate() > 30){
+      currentDay2 = new Date( today.getFullYear(), today.getMonth()+1, 1 ).getDay();
+      date2 = 1;
+      month2=today.getMonth()+1;
+    }
+    else{
+      currentDay2 = new Date( today.getFullYear(), today.getMonth(), today.getDate()+1 ).getDay();
+      date2 = today.getDate()+1;
+      month2=today.getMonth();
+    }
+  }
+  else{
+    if(today.getDate() > 29){
+      currentDay2 = new Date( today.getFullYear(), today.getMonth()+1, 1 ).getDay();
+      date2 = 1;
+      month2=today.getMonth()+1;
+    }
+    else{
+      currentDay2 = new Date( today.getFullYear(), today.getMonth(), today.getDate()+1 ).getDay();
+      date2 = today.getDate()+1;
+      month2=today.getMonth() ;
+    }
+  }
+}
+validate_month();
 
-	$('#arrival .date').html("<span class=\"booking-date\">"+today.getDate()+"</span>" + " " + months[today.getMonth()]+"<span class=\"year\">"+today.getFullYear()+"</span>");
-	$('#arrival .left').html("<div class=\"day\">"+dayNames[currentDay]+"</div>");
-	$('#departure .date').html("<span class=\"booking-date\">"+(today.getDate()+1)+"</span>" + " " + months[today.getMonth()]+"<span class=\"year\">"+today.getFullYear()+"</span>");
-	$('#departure .left').html("<div class=\"day\">"+dayNames[currentDay2]+"</div>");
+  $('#arrival .date').html("<span class=\"booking-date\">"+today.getDate()+"</span>" + " " + months[today.getMonth()]+"<span class=\"year\">"+today.getFullYear()+"</span>");
+  $('#arrival .left').html("<div class=\"day\">"+dayNames[currentDay]+"</div>");
+  $('#departure .date').html("<span class=\"booking-date\">"+date2+"</span>" + " " + months[month2]+"<span class=\"year\">"+today.getFullYear()+"</span>");
+  $('#departure .left').html("<div class=\"day\">"+dayNames[currentDay2]+"</div>");
 
       /* Get and Set variables */
       var opts = $.extend( {}, $.fn.inputdate.defaults, options );
@@ -71,7 +100,24 @@ var options='';
 
 			$('#arrival .date').html("<span class=\"booking-date\">"+currentValDay+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+currentValYear+"</span>");
 			$('#arrival .left').html("<div class=\"day\">"+dayNames[dateDay]+"</div>");
-			$('#departure .date').html("<span class=\"booking-date\">"+(currentValDay+1)+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
+
+        if(today.getMonth() == 0 || today.getMonth() == 2 || today.getMonth() == 4 || today.getMonth() == 6 || today.getMonth() == 7 || today.getMonth() == 9 || today.getMonth() == 11){
+          if(currentValDay > 30){
+            $('#departure .date').html("<span class=\"booking-date\">"+1+"</span>" + " " + months[currentValMonth]+"<span class=\"year\">"+ currentValYear+"</span>");
+          }
+          else{
+            $('#departure .date').html("<span class=\"booking-date\">"+(currentValDay+1)+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
+          }
+        }
+        else{
+          if(currentValDay > 29){
+          $('#departure .date').html("<span class=\"booking-date\">"+1+"</span>" + " " + months[currentValMonth]+"<span class=\"year\">"+ currentValYear+"</span>");
+          }
+          else{
+          $('#departure .date').html("<span class=\"booking-date\">"+(currentValDay+1)+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
+          }
+        }
+
 			$('#departure .left').html("<div class=\"day\">"+dayNames[dateDay2]+"</div>");
 		});
 
