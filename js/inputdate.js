@@ -1,4 +1,7 @@
-/* input date type/datepicker */
+/* input date type/datepicker 
+Plugin to add booking widget with input date type and a fallback as Datepicker plugin - Requires jquery and Jquery UI (Datepicker) plugin
+https://github.com/vaibhavagar/InputDate-Datepicker-Plugin
+*/
 
 /* Global Variables */
 var dateFormat='';
