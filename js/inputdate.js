@@ -151,11 +151,4 @@ $('.spinner').each(function () {
   };
 }( jQuery ));
 
-$(document).ready(function(){
- $('div').inputdate({
-   dateSplit:"-",
- 	 dateFormat:"US"	
- });
-});
-
 
