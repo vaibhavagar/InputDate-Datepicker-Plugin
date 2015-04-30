@@ -1,19 +1,22 @@
 # InputDate-Datepicker-Plugin
 Plugin to add booking widget with input date type and a fallback as Datepicker plugin - Requires jquery and Jquery UI (Datepicker) plugin
 
-Set to accept two options :
-#dateSplit
+<p>Set to accept two options :<br/>
+#dateSplit<br/>
 #dateFormat
+</p>
 
-Default values are : 
-#dateSplit - '/'
+<p>Default values are : <br/>
+#dateSplit - '/'<br/>
 #dateFormat - 'US'
+</p>
 
-Example Usage :
+<p>Example Usage :<br/>
  $('div').inputdate({
    dateSplit:"-",
    dateFormat:"US"	
  });
+ </p>
  
- # Works as a datepicker for non touch devices
- # Works as a custom input date type for supported mobile/tablet devices, falls back to datepicker for the rest
+<p> # Works as a datepicker for non touch devices</p>
+<p> # Works as a custom input date type for supported mobile/tablet devices, falls back to datepicker for the rest</p>
