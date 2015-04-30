@@ -1,0 +1,55 @@
+section.booking_widget{margin: 20px auto 40px;text-transform: uppercase;background-color: #457CA5;max-width: 370px;max-height: 390px;}
+  section.booking_widget fieldset{height: 135px;background-color: #5399C4;color: #FFF;width: 100%;float: left;border: 0;margin: 0;padding: 0;}
+    section.booking_widget fieldset label{padding:16px 0 0 10px;text-transform:uppercase;font-family: 'Muli', sans-serif;font-style:normal;font-weight:400;font-size:16px;width:50%;float: left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;*behavior: url(/assets/js/boxsizing.htc);line-height: 19px;}
+    section.booking_widget fieldset+fieldset{width: 33.334%;height: auto;position: relative;text-align: center;}
+      section.booking_widget fieldset+fieldset label{height: 44px;width: 100%;float: left;padding-left: 0;background-color: #457CA5;}
+  section.booking_widget .section_name { line-height: 13.5px; }
+        section.booking_widget fieldset+fieldset label+label{width:85px;height: 81px;background-color: #5399C4;font-size: 43px; font-family: 'Muli', sans-serif;font-weight: 400;padding: 32px 0 0;position: relative;right: -12px;}
+          section.booking_widget fieldset+fieldset+fieldset+fieldset .button-wrapper{border-right: none;}
+    section.booking_widget fieldset.submit_wrapper{width: 100%;height: 61px;background-color:#457CA5;padding-top: 8px;}
+  section.booking_widget fieldset .date_field {float: left;width: 50%;font-size: 1em;padding: 15px 20px;cursor: pointer;line-height: 1.1;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;*behavior: url(/assets/js/boxsizing.htc);height: 100%;position: relative;}
+    section.booking_widget fieldset .date_field .day { font-size: 10px; }
+    section.booking_widget fieldset .date_field .year { font-size: 16px;margin: -1px 0 0 5px;position: absolute;right: -2px;bottom: 9px;}
+    section.booking_widget fieldset .date_field .day, section.booking_widget fieldset .date_field .year { line-height: 1;  margin-top: 1px; float: left; font-family: 'Muli', sans-serif; font-style: normal; font-weight: 400; text-transform: uppercase;font-size: 16px;}
+    section.booking_widget fieldset .date_field label { display: inline-block; background: transparent; width: 100%; float: none; padding: 0; cursor: pointer; }
+    section.booking_widget fieldset .date_field .date { float: left; font-size: 16px; font-family: 'Muli', sans-serif;margin-top: -16px;font-weight: 400;position: relative;width: 100%;  z-index: 0;}
+    .booking-date{display: inline-block;font-size: 56px;}
+
+.button-wrapper{width: 23px;height: 81px;float: left;border-left: 1px solid #457CA5;border-right: 1px solid #457CA5;position: relative;}
+.best-rates{font-family: arial;font-size: 11px;color: #fff;line-height: 13px;text-transform: uppercase;margin: 12px 0 0 0;text-align: center;}
+.best-rates a{text-decoration: none;}
+.desktop_booking_title {height: 58px;text-align: center;padding: 0;margin: 0;font-family: 'Muli', sans-serif;font-style: normal;font-weight: 400;text-transform: uppercase;color: #FFF;line-height: 59px;font-size: 21px;}
+
+.gradient-button{font-size: 22px;font-family: 'Muli', sans-serif;font-style: normal;font-weight: 400;line-height: 23px;letter-spacing: 1px;width: auto;height: 52px; margin: auto; color: #fff;padding: 3px 92px 0;text-align: center;text-decoration: none;display: inline-block;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;background-color: #3B342B;border: 0;text-transform: uppercase;}
+
+.booking-icon{background: url('/assets/images/booking-icon.png') no-repeat;width: 32px;height: 32px;display: inline-block;float: right;position: relative;  z-index: 0;}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx) {
+.booking-icon{background: url('/assets/images/booking-icon-2x.png') no-repeat;background-size:32px 32px;}
+}
+#arrival{border-right: 1px solid #457CA5;}
+.spinner { position: relative; line-height: 1; }
+  .spinner .button-booking {position: absolute; color: #fff; font-size: 24px; line-height: 1; text-align: center; cursor: pointer;  overflow: hidden;font-family: 'Roboto', sans-serif;font-weight: 700;}
+  .spinner .decrement {right: 1px;top: 56px;width: 12px;height: 2px;padding: 5px;}
+.decrement_clickable{border-bottom: solid 2px;display: block;}
+  .spinner .increment { top: 12px; right: 1px; width: 21px; }
+.mob-friendly {  width: 100%;height: 100%;position: absolute;top: 0;left: 0;opacity: 0;  z-index: 999999;-webkit-appearance: none;-moz-webkit-appearance: none;}
+
+@media only screen and (max-width: 420px){
+	section.booking_widget fieldset .date_field .date,section.booking_widget fieldset .date_field .year{font-size: 14px;}
+	.booking-date{font-size: 48px;}
+	.gradient-button{padding: 3px 52px 0;}
+}
+@media only screen and (max-width: 385px){
+	 section.booking_widget fieldset+fieldset label+label{width: 60px;}
+	 section.booking_widget fieldset .date_field{padding: 15px 12px;}
+}
+
+@media only screen and (max-width: 350px){
+	section.booking_widget fieldset .date_field{padding: 15px 5px;}
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+.left { float:left; }
+.right { float:right; }

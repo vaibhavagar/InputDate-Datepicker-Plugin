@@ -1,0 +1,47 @@
+<section class="booking_widget" id="book-now">
+	<p class="desktop_booking_title">Book your Stay</p>
+			<form id="booking" method="POST" action="/booking.php" class="clearfix" target="_blank">
+				<fieldset class="clearfix" id="booking-dates">
+					<div class="date_field" id="arrival">
+						<label>Arrive on</label>
+						<div class="booking-icon"></div>
+						<input type="date" name="arrival" id="arrivalFrom" value="" class="mob-friendly">
+						<div class="date"><span class="booking-date">17</span> APR <span class="year">2015</span></div>
+						<div class="left">
+							<div class="day">FRIDAY</div>
+						</div>
+					</div>
+					<div class="date_field" id="departure">
+						<label>Depart on</label>
+						<div class="booking-icon"></div>
+						<input type="date" name="departure" id="departureFrom" value="" class="mob-friendly">
+						<div class="date"><span class="booking-date">18</span> APR <span class="year">2015</span></div>
+						<div class="left">
+							<div class="day">SATURDAY</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="clearfix spinner" data-min="1" data-max="26">
+					<label class="section_name">Rooms</label>
+					<label class="section_value">1</label>
+					<div class="button-wrapper"><div class="button-booking increment">+</div>
+					<input type="hidden" id="rooms" name="rooms" value="1">
+					<div class="button-booking decrement"><span class="decrement_clickable"></span></div></div>
+				</fieldset>
+				<fieldset class="clearfix spinner" data-min="1" data-max="5">
+					<label class="section_name">Adults</label>
+					<label class="section_value">2</label>
+					<div class="button-wrapper"><div class="button-booking increment">+</div>
+					<input type="hidden" id="adults" name="adults" value="2">
+					<div class="button-booking decrement"><span class="decrement_clickable"></span></div></div>
+				</fieldset>
+				<fieldset class="clearfix spinner" data-min="0" data-max="5">
+					<label class="section_name">Children</label>
+					<label class="section_value">0</label>
+					<div class="button-wrapper"><div class="button-booking increment">+</div>
+					<input type="hidden" id="children" name="children" value="0">
+					<div class="button-booking decrement"><span class="decrement_clickable"></span></div></div>
+				</fieldset>
+				<fieldset class="submit_wrapper"><input type="submit" class="gradient-button" value="Check Rates" name="res_submit" id="booking-submit"></fieldset>
+			</form>
+			</section>
