@@ -15,7 +15,7 @@ var options='';
     var tomorrow = new Date();
 
   var months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-  var dayNames = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+  var dayNames = new Array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
 
   var currentDay = new Date( today.getFullYear(), today.getMonth(), today.getDate() ).getDay();
   var currentDay2 = 0;
