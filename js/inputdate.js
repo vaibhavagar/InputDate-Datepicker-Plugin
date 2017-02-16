@@ -35,6 +35,18 @@ function validate_month(){
       month2=today.getMonth();
     }
   }
+  else if(today.getMonth() == 1){
+    if(today.getDate() == 28){
+      currentDay2 = new Date( today.getFullYear(), today.getMonth()+1, 1 ).getDay();
+      date2 = 1;
+      month2=today.getMonth()+1;
+    }
+    else{
+      currentDay2 = new Date( today.getFullYear(), today.getMonth(), today.getDate()+1 ).getDay();
+      date2 = today.getDate()+1;
+      month2=today.getMonth();
+    }    
+  }
   else{
     if(today.getDate() > 29){
       currentDay2 = new Date( today.getFullYear(), today.getMonth()+1, 1 ).getDay();
