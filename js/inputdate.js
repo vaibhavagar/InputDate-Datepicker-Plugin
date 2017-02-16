@@ -50,17 +50,21 @@ function validate_month(){
 }
 validate_month();
 
-  $('#arrival .date').html("<span class=\"booking-date\">"+today.getDate()+"</span>" + " " + months[today.getMonth()]+"<span class=\"year\">"+today.getFullYear()+"</span>");
+/*  $('#arrival .date').html("<span class=\"booking-date\">"+today.getDate()+"</span>" + " " + months[today.getMonth()]+"<span class=\"year\">"+today.getFullYear()+"</span>");
   $('#arrival .left').html("<div class=\"day\">"+dayNames[currentDay]+"</div>");
   $('#departure .date').html("<span class=\"booking-date\">"+date2+"</span>" + " " + months[month2]+"<span class=\"year\">"+today.getFullYear()+"</span>");
-  $('#departure .left').html("<div class=\"day\">"+dayNames[currentDay2]+"</div>");
+  $('#departure .left').html("<div class=\"day\">"+dayNames[currentDay2]+"</div>");*/
+ $('#arrival .date').text(today.getDate());
+ $('#arrival .month-day').html('<div class="month">'+months[today.getMonth()]+'</div><div class="day">'+dayNames[currentDay]+'</div>');
+ $('#departure .date').text(date2);
+ $('#departure .month-day').html('<div class="month">'+months[month2]+'</div><div class="day">'+dayNames[currentDay2]+'</div>');   
 
       /* Get and Set variables */
       var opts = $.extend( {}, $.fn.inputdate.defaults, options );
       dateFormat = opts.dateFormat;
       dateSplit = opts.dateSplit;
       
-		$('#arrivalFrom').change(function() {
+        $('#arrivalFrom').change(function() {
       
       if(dateFormat == 'UK'){
         if(dateSplit == '-'){
@@ -80,83 +84,105 @@ validate_month();
       }
       else{
         if(dateSplit == '-'){
- 			var currentVal = $(this).val();
-			var currentValSplit = currentVal.split('-');
-			var currentValDay = parseInt(currentValSplit [2]);
-			var currentValMonth = parseInt(currentValSplit [1]);
-			var currentValYear = parseInt(currentValSplit [0]);
+            var currentVal = $(this).val();
+            var currentValSplit = currentVal.split('-');
+            var currentValDay = parseInt(currentValSplit [2]);
+            var currentValMonth = parseInt(currentValSplit [1]);
+            var currentValYear = parseInt(currentValSplit [0]);
         }
         else{
-  		var currentVal = $(this).val();
-			var currentValSplit = currentVal.split('/');
-			var currentValDay = parseInt(currentValSplit [2]);
-			var currentValMonth = parseInt(currentValSplit [1]);
-			var currentValYear = parseInt(currentValSplit [0]);
+        var currentVal = $(this).val();
+            var currentValSplit = currentVal.split('/');
+            var currentValDay = parseInt(currentValSplit [2]);
+            var currentValMonth = parseInt(currentValSplit [1]);
+            var currentValYear = parseInt(currentValSplit [0]);
         }
-			}
+            }
       
-			var dateDay = new Date( currentValYear, currentValMonth-1, currentValDay ).getDay();
-			var dateDay2 = new Date( currentValYear, currentValMonth-1, currentValDay+1 ).getDay();
+            var dateDay = new Date( currentValYear, currentValMonth-1, currentValDay ).getDay();
+            var dateDay2 = new Date( currentValYear, currentValMonth-1, currentValDay+1 ).getDay();
 
-			$('#arrival .date').html("<span class=\"booking-date\">"+currentValDay+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+currentValYear+"</span>");
-			$('#arrival .left').html("<div class=\"day\">"+dayNames[dateDay]+"</div>");
-
-        if(today.getMonth() == 0 || today.getMonth() == 2 || today.getMonth() == 4 || today.getMonth() == 6 || today.getMonth() == 7 || today.getMonth() == 9 || today.getMonth() == 11){
+            //$('#arrival .date').html("<span class=\"booking-date\">"+currentValDay+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+currentValYear+"</span>");
+            //$('#arrival .left').html("<div class=\"day\">"+dayNames[dateDay]+"</div>");
+       $('#arrival .date').text(currentValDay);
+       $('#arrival .month-day').html('<div class="month">'+months[currentValMonth - 1]+'</div><div class="day">'+dayNames[dateDay]+'</div>');
+        if(currentValMonth == 1 || currentValMonth == 3 || currentValMonth == 5 || currentValMonth == 7 || currentValMonth == 8 || currentValMonth == 10 || currentValMonth == 12){
           if(currentValDay > 30){
-            $('#departure .date').html("<span class=\"booking-date\">"+1+"</span>" + " " + months[currentValMonth]+"<span class=\"year\">"+ currentValYear+"</span>");
+            //$('#departure .date').html("<span class=\"booking-date\">"+1+"</span>" + " " + months[currentValMonth]+"<span class=\"year\">"+ currentValYear+"</span>");
+           $('#departure .date').text(1);
+           $('#departure .month-day').html('<div class="month">'+months[currentValMonth]+'</div><div class="day">'+dayNames[dateDay2]+'</div>');
           }
           else{
-            $('#departure .date').html("<span class=\"booking-date\">"+(currentValDay+1)+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
+            //$('#departure .date').html("<span class=\"booking-date\">"+(currentValDay+1)+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
+           $('#departure .date').text((currentValDay+1));
+           $('#departure .month-day').html('<div class="month">'+months[currentValMonth - 1]+'</div><div class="day">'+dayNames[dateDay2]+'</div>');            
+          }
+        }
+        else if(currentValMonth == 2){
+          if(currentValDay == 28){
+            //$('#departure .date').html("<span class=\"booking-date\">"+1+"</span>" + " " + months[currentValMonth]+"<span class=\"year\">"+ currentValYear+"</span>");
+           $('#departure .date').text(1);
+           $('#departure .month-day').html('<div class="month">'+months[currentValMonth]+'</div><div class="day">'+dayNames[dateDay2]+'</div>');           
+          }
+          else{
+           $('#departure .date').text((currentValDay+1));
+           $('#departure .month-day').html('<div class="month">'+months[currentValMonth - 1]+'</div><div class="day">'+dayNames[dateDay2]+'</div>');            
+           //$('#departure .date').html("<span class=\"booking-date\">"+(currentValDay+1)+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
           }
         }
         else{
           if(currentValDay > 29){
-          $('#departure .date').html("<span class=\"booking-date\">"+1+"</span>" + " " + months[currentValMonth]+"<span class=\"year\">"+ currentValYear+"</span>");
+            //$('#departure .date').html("<span class=\"booking-date\">"+1+"</span>" + " " + months[currentValMonth]+"<span class=\"year\">"+ currentValYear+"</span>");
+           $('#departure .date').text(1);
+           $('#departure .month-day').html('<div class="month">'+months[currentValMonth]+'</div><div class="day">'+dayNames[dateDay2]+'</div>');           
           }
           else{
-          $('#departure .date').html("<span class=\"booking-date\">"+(currentValDay+1)+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
+           $('#departure .date').text((currentValDay+1));
+           $('#departure .month-day').html('<div class="month">'+months[currentValMonth - 1]+'</div><div class="day">'+dayNames[dateDay2]+'</div>');            
+           //$('#departure .date').html("<span class=\"booking-date\">"+(currentValDay+1)+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
           }
         }
 
-			$('#departure .left').html("<div class=\"day\">"+dayNames[dateDay2]+"</div>");
-		});
+            //$('#departure .left').html("<div class=\"day\">"+dayNames[dateDay2]+"</div>");
+        });
 
-		$('#departureFrom').change(function() {
-			var currentVal = $(this).val();
-			var currentValSplit = currentVal.split('-');
-			var currentValDay = parseInt(currentValSplit [2]);
-			var currentValMonth = parseInt(currentValSplit [1]);
-			var currentValYear = parseInt(currentValSplit [0]);
+        $('#departureFrom').change(function() {
+            var currentVal = $(this).val();
+            var currentValSplit = currentVal.split('-');
+            var currentValDay = parseInt(currentValSplit [2]);
+            var currentValMonth = parseInt(currentValSplit [1]);
+            var currentValYear = parseInt(currentValSplit [0]);
 
-			var dateDay = new Date( currentValYear, currentValMonth-1, currentValDay ).getDay();
+            var dateDay = new Date( currentValYear, currentValMonth-1, currentValDay ).getDay();
+           $('#departure .date').text(currentValDay);
+           $('#departure .month-day').html('<div class="month">'+months[currentValMonth - 1]+'</div><div class="day">'+dayNames[dateDay]+'</div>'); 
+            //$('#departure .date').html("<span class=\"booking-date\">"+currentValDay+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
+            //$('#departure .left').html("<div class=\"day\">"+dayNames[dateDay]+"</div>");
+        });
 
-			$('#departure .date').html("<span class=\"booking-date\">"+currentValDay+"</span>" + " " + months[currentValMonth - 1]+"<span class=\"year\">"+ currentValYear+"</span>");
-			$('#departure .left').html("<div class=\"day\">"+dayNames[dateDay]+"</div>");
-		});
 
+    if(!Modernizr.inputtypes.date || !Modernizr.touch) {
+            console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
 
-	if(!Modernizr.inputtypes.date || !Modernizr.touch) {
-	        console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
-
-	    $( "#arrivalFrom" ).datepicker({
-	      defaultDate: "+1w",
-	      changeMonth: true,
-	      numberOfMonths: 1,
-	      dateFormat: 'yy-mm-dd',
-	      onClose: function( selectedDate ) {
-	        $( "#departureFrom" ).datepicker( "option", "minDate", selectedDate );
-	      }
-	    });
-	    $( "#departureFrom" ).datepicker({
-	      defaultDate: "+1w",
-	      changeMonth: true,
-	      numberOfMonths: 1,
-	      dateFormat: 'yy-mm-dd',
-	      onClose: function( selectedDate ) {
-	        $( "#arrivalFrom" ).datepicker( "option", "maxDate", selectedDate );
-	      }
-	    });
-	}
+        $( "#arrivalFrom" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          dateFormat: 'yy-mm-dd',
+          onClose: function( selectedDate ) {
+            $( "#departureFrom" ).datepicker( "option", "minDate", selectedDate );
+          }
+        });
+        $( "#departureFrom" ).datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          dateFormat: 'yy-mm-dd',
+          onClose: function( selectedDate ) {
+            $( "#arrivalFrom" ).datepicker( "option", "maxDate", selectedDate );
+          }
+        });
+    }
       
       /* Courtesy - Liam's code */
 $('.spinner').each(function () {
@@ -199,5 +225,3 @@ $('.spinner').each(function () {
     dateSplit: "/"
   };
 }( jQuery ));
-
-
